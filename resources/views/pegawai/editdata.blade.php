@@ -15,7 +15,7 @@
                 <h3 class="card-title">Edit Transaksi Laundry</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.update', $transaction->id) }}" method="POST">
+                <form action="{{ route('pegawai.update', $transaction->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-between">
-                        <a href="{{ route('admin.viewdata') }}" class="btn btn-secondary">Back</a>
+                        <a href="{{ route('pegawai.viewdata') }}" class="btn btn-secondary">Back</a>
                         <button type="submit" class="btn btn-success">Simpan Perubahan</button>
                     </div>
                 </form>

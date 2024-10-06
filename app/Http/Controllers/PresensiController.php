@@ -9,7 +9,7 @@ class PresensiController extends Controller
 {
         public function presensi()
     {
-        return view('admin.presensi');
+        return view('pegawai.presensi');
     }
 
     // Menyimpan data presensi ke database
@@ -39,14 +39,14 @@ class PresensiController extends Controller
         ]);
 
         // Redirect atau menampilkan pesan sukses
-        return redirect()->route('admin.dashboard')->with('success', 'Presensi berhasil disimpan.');
+        return redirect()->route('pegawai.dashboard')->with('success', 'Presensi berhasil disimpan.');
     }
 
     // Menampilkan data presensi dalam bentuk tabel
     public function viewpresensi()
     {
         $presensis = Presensi::all(); // Mengambil semua data presensi dari database
-        return view('admin.viewpresensi', compact('presensis'));
+        return view('pegawai.viewpresensi', compact('presensis'));
     }
 
 }

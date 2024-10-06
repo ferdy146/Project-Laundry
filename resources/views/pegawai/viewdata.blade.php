@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">Back</a>
+            <a href="{{ route('pegawai.dashboard') }}" class="btn btn-secondary">Back</a>
         </div>
         @foreach($transactions as $transaction)
         <div class="card">
@@ -48,8 +48,8 @@
                     <div class="col-sm-8">Rp {{ $transaction->total_harga }}</div>
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('admin.editdata', ['id' => $transaction->id]) }}" class="btn btn-warning">Edit Transaksi</a>
-                    <form action="{{ route('admin.delete', ['id' => $transaction->id]) }}" method="POST" style="display: inline;">
+                    <a href="{{ route('pegawai.editdata', ['id' => $transaction->id]) }}" class="btn btn-warning">Edit Transaksi</a>
+                    <form action="{{ route('pegawai.delete', ['id' => $transaction->id]) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Hapus Transaksi</button>

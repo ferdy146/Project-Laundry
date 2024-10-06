@@ -58,7 +58,7 @@
                 Tidak ada data presensi yang tersedia.
             </div>
         @endif
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">Back</a>
+        <a href="{{ route('pegawai.dashboard') }}" class="btn btn-secondary">Back</a>
     </div>
 </body>
 

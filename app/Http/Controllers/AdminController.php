@@ -10,12 +10,12 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
+        return view('pegawai.dashboard');
     }
 
     public function inputdata()
     {
-        return view('admin.inputdata');
+        return view('pegawai.inputdata');
     }
 
     public function store(Request $request)
@@ -45,19 +45,19 @@ class AdminController extends Controller
             'total_harga' => $totalHarga,
         ]);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('pegawai.dashboard');
     }
 
     public function viewdata()
     {
         $transactions = Transaction::all();
-        return view('admin.viewdata', compact('transactions'));
+        return view('pegawai.viewdata', compact('transactions'));
     }
 
     public function editdata($id)
     {
         $transaction = Transaction::findOrFail($id);
-        return view('admin.editdata', compact('transaction'));
+        return view('pegawai.editdata', compact('transaction'));
     }
 
     public function update(Request $request, $id)
@@ -89,7 +89,7 @@ class AdminController extends Controller
             'total_harga' => $totalHarga,
         ]);
 
-        return redirect()->route('admin.viewdata')->with('success', 'Transaksi berhasil diperbarui');
+        return redirect()->route('pegawai.viewdata')->with('success', 'Transaksi berhasil diperbarui');
     }
 
     public function delete($id)
@@ -97,8 +97,8 @@ class AdminController extends Controller
         $transaction = Transaction::find($id);
         if ($transaction) {
             $transaction->delete();
-            return redirect()->route('admin.viewdata');
+            return redirect()->route('pegawai.viewdata');
         }
-        return redirect()->route('admin.viewdata');
+        return redirect()->route('pegawai.viewdata');
     }
 }

@@ -47,7 +47,7 @@
             <div class="col-md-9 col-xl-10 px-sm-2 px-0">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1>Selamat Datang Admin Podomoro Laundry</h1>
+                    <h1>Selamat Datang Pegawai Podomoro Laundry</h1>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"  class="btn btn-outline-danger">Logout</button>

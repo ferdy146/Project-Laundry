@@ -38,7 +38,7 @@
                 <input type="file" id="upload" name="upload">
     
                 <div class="buttons">
-                    <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">Back</a>
+                    <a href="{{ route('pegawai.dashboard') }}" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </form>

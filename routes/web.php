@@ -15,21 +15,21 @@ Route::get('/kontak', [HomeController::class, 'kontak']);
 
 
 // Untuk tampilan Admin 
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
-Route::get('/admin/inputdata', [AdminController::class, 'inputdata'])->middleware(['auth', 'verified']);
-Route::post('/admin/inputdata', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.store');
-Route::get('admin/viewdata', [AdminController::class, 'viewdata'])->middleware(['auth', 'verified'])->name('admin.viewdata');
-Route::get('admin/editdata/{id}', [AdminController::class, 'editdata'])->middleware(['auth', 'verified'])->name('admin.editdata');
-Route::put('admin/update/{id}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
-Route::delete('admin/delete/{id}', [AdminController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
+Route::get('/pegawai/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('pegawai.dashboard');
+Route::get('/pegawai/inputdata', [AdminController::class, 'inputdata'])->middleware(['auth', 'verified']);
+Route::post('/pegawai/inputdata', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('pegawai.store');
+Route::get('pegawai/viewdata', [AdminController::class, 'viewdata'])->middleware(['auth', 'verified'])->name('pegawai.viewdata');
+Route::get('pegawai/editdata/{id}', [AdminController::class, 'editdata'])->middleware(['auth', 'verified'])->name('pegawai.editdata');
+Route::put('pegawai/update/{id}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('pegawai.update');
+Route::delete('pegawai/delete/{id}', [AdminController::class, 'delete'])->middleware(['auth', 'verified'])->name('pegawai.delete');
 
 
 // Untuk Login
 Route::middleware('guest')->group(function () {
-    Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
+    Route::get('pegawai/login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
-    Route::post('admin/login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('pegawai/login', [AuthenticatedSessionController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
 // Untuk Presensi Pegawai
 // Menampilkan halaman daftar presensi
-Route::get('/admin/presensi', [PresensiController::class, 'presensi'])->middleware(['auth', 'verified'])->name('admin.presensi');
+Route::get('/pegawai/presensi', [PresensiController::class, 'presensi'])->middleware(['auth', 'verified'])->name('pegawai.presensi');
 
 // Menampilkan halaman form tambah presensi
 Route::get('/presensi/create', [PresensiController::class, 'presensi'])->middleware(['auth', 'verified'])->name('presensi.create');
@@ -47,8 +47,8 @@ Route::get('/presensi/create', [PresensiController::class, 'presensi'])->middlew
 // Menyimpan data presensi
 Route::post('/presensi', [PresensiController::class, 'store'])->middleware(['auth', 'verified'])->name('presensi.store');
 
-// Menampilkan halaman daftar presensi di dashboard admin
-Route::get('/admin/viewpresensi', [PresensiController::class, 'viewpresensi'])->middleware(['auth', 'verified'])->name('admin.viewpresensi');
+// Menampilkan halaman daftar presensi di dashboard pegawai
+Route::get('/pegawai/viewpresensi', [PresensiController::class, 'viewpresensi'])->middleware(['auth', 'verified'])->name('pegawai.viewpresensi');
 
 
 
