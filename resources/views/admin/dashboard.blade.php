@@ -31,6 +31,16 @@
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Lihat data transaksi</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="presensi" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Presensi Pegawai</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="viewpresensi" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Lihat Presensi Pegawai</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
