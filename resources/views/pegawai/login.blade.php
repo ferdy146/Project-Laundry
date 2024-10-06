@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login - Laundry Service</title>
+  <title>Pegawai Login - Laundry Service</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="{{ asset('css/st_login.css') }}" />
@@ -22,7 +22,7 @@
   <!-- Login Section -->
   <div class="container py-5">
     <br>
-    <h2 class="text-center mb-4">Admin Login</h2>
+    <h2 class="text-center mb-4">Pegawai Login</h2>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <!-- Session Status -->
