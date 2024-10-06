@@ -13,7 +13,7 @@ class AuthenticatedSessionController extends Controller
 {
     public function create(): View
     {
-        return view('admin.login');
+        return view('pegawai.login');
     }
 
     public function store(LoginRequest $request): RedirectResponse
@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard', absolute: false));
+        return redirect()->intended(route('pegawai.dashboard', absolute: false));
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -33,6 +33,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('admin/login');
+        return redirect('pegawai/login');
     }
 }
