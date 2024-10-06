@@ -7,7 +7,7 @@
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/st_login.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/st_login.css') }}"> --}}  
 </head>
 
 <body>
@@ -37,8 +37,7 @@
             <div class="col-md-9 col-xl-10 px-sm-2 px-0">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1>Selamat Datang</h1>
-                    <h1 class="h2">Admin Podomoro Laundry</h1>
+                    <h1>Selamat Datang Admin Podomoro Laundry</h1>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"  class="btn btn-outline-danger">Logout</button>
