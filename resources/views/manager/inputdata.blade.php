@@ -14,7 +14,7 @@
                 <h3 class="card-title">Form Transaksi Laundry</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('pegawai.store') }}" method="POST">
+                <form action="{{ route('manager.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="tanggalMasuk">Tanggal Masuk</label>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-between">
-                        <a href="{{ Auth::user()->name === 'manager' ? route('manager.dashboard') : route('pegawai.dashboard') }}" 
+                        <a href="{{ Auth::user()->name === 'manager' ? route('manager.dashboard') : route('manager.dashboard') }}" 
                             class="btn btn-secondary">
                              Back
                          </a>                         

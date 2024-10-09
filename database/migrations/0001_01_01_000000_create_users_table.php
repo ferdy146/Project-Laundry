@@ -40,8 +40,17 @@ return new class extends Migration
 
         // default akun untuk login admin ke dalam database
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'pegawai',
+            'email' => 'pegawai@gmail.com',
+            'password' => Hash::make('12345678'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Default akun untuk login manager ke dalam database
+        DB::table('users')->insert([
+            'name' => 'manager',
+            'email' => 'manager@gmail.com',
             'password' => Hash::make('12345678'),
             'created_at' => now(),
             'updated_at' => now(),

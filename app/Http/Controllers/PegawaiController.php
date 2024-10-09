@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 
-
-class AdminController extends Controller
+class PegawaiController extends Controller
 {
     public function dashboard()
     {
@@ -46,6 +46,7 @@ class AdminController extends Controller
         ]);
 
         return redirect()->route('pegawai.dashboard');
+
     }
 
     public function viewdata()
@@ -100,5 +101,5 @@ class AdminController extends Controller
             return redirect()->route('pegawai.viewdata');
         }
         return redirect()->route('pegawai.viewdata');
-    }
+    }   
 }

@@ -13,26 +13,43 @@ class AuthenticatedSessionController extends Controller
 {
     public function create(): View
     {
-        return view('pegawai.login');
+        return view('admin.login'); // Halaman login untuk pegawai dan manager
     }
 
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Proses autentikasi
         $request->authenticate();
 
+        // Regenerasi sesi untuk menghindari session fixation attacks
         $request->session()->regenerate();
 
-        return redirect()->intended(route('pegawai.dashboard', absolute: false));
+        // Ambil pengguna yang sedang login
+        $user = Auth::user();
+
+        // Cek peran pengguna (pegawai atau manager)
+        if ($user->name === 'manager') {
+            // Redirect ke halaman manager jika pengguna adalah manager
+            return redirect()->intended(route('manager.dashboard'));
+        } elseif ($user->name === 'pegawai') {
+            // Redirect ke halaman pegawai jika pengguna adalah pegawai
+            return redirect()->intended(route('pegawai.dashboard'));
+        }
+
+        // Jika peran tidak diketahui, arahkan ke halaman default (misalnya halaman login)
+        return redirect()->route('login');
     }
 
     public function destroy(Request $request): RedirectResponse
     {
+        // Logout user
         Auth::guard('web')->logout();
 
+        // Invalidate session dan regenerate token
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('pegawai/login');
+        // Redirect kembali ke halaman login setelah logout
+        return redirect('admin/login');
     }
 }

@@ -42,11 +42,11 @@
                             <td>{{ $presensi->keterangan ?? '-' }}</td>
                             <td>
                                 @if ($presensi->upload)
-                                    <a href="{{ asset('storage/' . $presensi->upload) }}" target="_blank">Lihat File</a>
+                                    <a href="{{ route('presensi.file', $presensi->id) }}" target="_blank">Lihat File</a>
                                 @else
                                     Tidak ada file
                                 @endif
-                            </td>
+                            </td>                            
                             <td>{{ $presensi->created_at->format('d-m-Y H:i') }}</td>
                         </tr>
                     @endforeach
