@@ -87,7 +87,7 @@
 </head>
 
 <body>
-    @include('template.sidebarpegawai')
+    @include('template.sidebarmanager')
     <div class="dashboard-content"> 
         <form action="{{ route('presensi.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -125,7 +125,7 @@
                 </div>
     
                 <div class="form-group d-flex">
-                    <a href="{{ route('pegawai.dashboard') }}" class="btn btn-secondary">Back</a>
+                    <a href="{{ route('manager.dashboard') }}" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </div>

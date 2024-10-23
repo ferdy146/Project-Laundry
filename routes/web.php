@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\ManagerController;
 
@@ -63,8 +64,20 @@ Route::get('manager/editdata/{id}', [ManagerController::class, 'editdata'])->mid
 Route::put('manager/update/{id}', [ManagerController::class, 'update'])->middleware(['auth', 'verified'])->name('manager.update');
 Route::delete('manager/delete/{id}', [ManagerController::class, 'delete'])->middleware(['auth', 'verified'])->name('manager.delete');
 // Menampilkan halaman daftar presensi di dashboard Manager
+// Menampilkan halaman daftar presensi
+Route::get('/manager/presensi', [PresensiController::class, 'presensimanager'])->middleware(['auth', 'verified'])->name('manager.presensi');
+
+// Menampilkan halaman form tambah presensi
+Route::get('/presensi/create', [PresensiController::class, 'presensi'])->middleware(['auth', 'verified'])->name('presensi.create');
+
+// Menyimpan data presensi
+Route::post('/presensi', [PresensiController::class, 'store'])->middleware(['auth', 'verified'])->name('presensi.store');
+
 Route::get('manager/viewpresensi', [PresensiController::class, 'viewpresensiManager'])->middleware(['auth', 'verified'])->name('manager.viewpresensi');
 
-Route::get('/presensi/{id}/edit', [PresensiController::class, 'editpresensi'])->name('presensi.edit');
-Route::put('/presensi/{id}', [PresensiController::class, 'update'])->name('presensi.update');
-Route::delete('/presensi/{id}', [PresensiController::class, 'destroy'])->name('presensi.destroy');
+Route::get('/presensi/{id}/edit', [PresensiController::class, 'editpresensi'])->middleware(['auth', 'verified'])->name('presensi.edit');
+Route::put('/presensi/{id}', [PresensiController::class, 'update'])->middleware(['auth', 'verified'])->name('presensi.update');
+Route::delete('/presensi/{id}', [PresensiController::class, 'destroy'])->middleware(['auth', 'verified'])->name('presensi.destroy');
+Route::get('manager/inputlayanan', [LayananController::class, 'inputlayanan'])->middleware(['auth', 'verified'])->name('manager.inputlayanan');
+Route::get('manager/viewlayanan', [LayananController::class, 'viewlayanan'])->middleware(['auth', 'verified'])->name('manager.viewlayanan');
+Route::get('manager/editlayanan', [LayananController::class, 'editlayanan'])->middleware(['auth', 'verified'])->name('manager.editlayanan');
