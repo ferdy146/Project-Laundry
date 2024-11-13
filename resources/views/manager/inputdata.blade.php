@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -145,4 +145,81 @@
 
 </body>
 
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Transaksi Laundry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/da.css') }}">
+    <style>
+        /* Styles */
+    </style>
+</head>
+
+<body>
+    @include('template.sidebarmanager')
+    <div class="dashboard-content">
+        <div class="container">
+            <h3>Form Transaksi Laundry</h3>
+            <form action="{{ route('manager.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="tanggalMasuk">Tanggal Masuk:</label>
+                    <input type="date" id="tanggalMasuk" name="tanggalMasuk" required>
+                </div>
+                <div class="form-group">
+                    <label for="namaPelanggan">Nama Pelanggan:</label>
+                    <input type="text" id="namaPelanggan" name="namaPelanggan" placeholder="Masukkan nama pelanggan" required>
+                </div>
+
+                <!-- Pilihan Jenis Layanan -->
+                <div class="form-group">
+                    <label for="jenisLayanan">Jenis Layanan:</label>
+                    <select id="jenisLayanan" name="jenisLayanan" required>
+                        <option value="" disabled selected>Pilih jenis layanan</option>
+                        @foreach($laundries as $laundry)
+                            <option value="{{ $laundry->jenis_layanan }}">{{ $laundry->jenis_layanan }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Pilihan Durasi Layanan -->
+                <div class="form-group">
+                    <label for="jenisLaundry">Jenis Laundry:</label>
+                    <select id="jenisLaundry" name="jenisLaundry" required>
+                        <option value="" disabled selected>Pilih jenis laundry</option>
+                        <option value="Express">Express</option>
+                        <option value="Kilat">Kilat</option>
+                        <option value="Reguler">Reguler</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="berat">Berat (kg):</label>
+                    <input type="number" id="berat" name="berat" placeholder="Masukkan berat laundry" required>
+                </div>
+                <div class="form-group">
+                    <label>Metode Pembayaran:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="cash" name="metodePembayaran" value="cash" required>
+                        <label class="form-check-label" for="cash">Cash</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="transfer" name="metodePembayaran" value="transfer" required>
+                        <label class="form-check-label" for="transfer">Transfer</label>
+                    </div>
+                </div>
+                <div class="form-group d-flex">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ route('manager.dashboard') }}'">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan Transaksi</button>                
+                </div>
+            </form>
+        </div>       
+    </div>
+</body>
 </html>

@@ -50,10 +50,10 @@ class PresensiController extends Controller
         // Cek peran pengguna (pegawai atau manager)
         if ($user->name === 'manager') {
             // Redirect ke halaman manager jika pengguna adalah manager
-            return redirect()->intended(route('manager.dashboard'))->with('success', 'Presensi berhasil disimpan.');
-        } elseif ($user->name === 'pegawai') {
-            // Redirect ke halaman pegawai jika pengguna adalah pegawai
-            return redirect()->intended(route('pegawai.dashboard'))->with('success', 'Presensi berhasil disimpan.');
+            return redirect()->intended(route('manager.dashboard'));
+        } elseif (in_array($user->name, ['Ferdy', 'Mado', 'Rio', 'Juliano'])) {
+            // Redirect ke halaman pegawai jika pengguna adalah pegawai dengan nama yang disebutkan
+            return redirect()->intended(route('pegawai.dashboard'));
         }
     }
 

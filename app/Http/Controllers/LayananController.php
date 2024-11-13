@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 
 class LayananController extends Controller
 {
-    public function inputlayanan()
-    {
-        return view('manager.inputlayanan');
-    }
+    // public function inputlayanan()
+    // {
+    //     return view('manager.inputlayanan');
+    // }
 
-    public function viewlayanan()
-    {
-        return view('manager.viewlayanan');
-    }
+    // public function viewlayanan()
+    // {
+    //     return view('manager.viewlayanan');
+    // }
 
     public function editlayanan()
     {

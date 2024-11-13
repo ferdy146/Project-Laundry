@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/da.css') }}">
     <style>
+        /* Style CSS tetap sama */
         body {
             font-family: 'Poppins', sans-serif;
             background-image: url("{{ asset('img/dash.png') }}");
         }
-
         .container {
             background-color: #fff;
             padding: 20px;
@@ -24,21 +24,19 @@
             text-align: center;
             margin: 50px auto;
         }
-
         h2 {
             color: #333;
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             margin-bottom: 5px;
             text-align: left;
         }
-
         select,
         textarea,
-        input[type="file"] {
+        input[type="file"],
+        input[readonly] {
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
@@ -46,7 +44,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-
         button {
             background-color: #5eb1e6;
             color: white;
@@ -56,11 +53,9 @@
             cursor: pointer;
             width: 25%;
         }
-
         button:hover {
             background-color: #007bff;
         }
-
         .btn-secondary {
             background-color: #f44336;
             color: white;
@@ -70,15 +65,12 @@
             cursor: pointer;
             width: 15%;
         }
-
         .btn-secondary:hover {
             background-color: #e53935;
         }
-
         .form-group {
             text-align: left;
         }
-
         .form-group.d-flex {
             justify-content: space-between;
             display: flex;
@@ -94,14 +86,10 @@
             <div class="container">
                 <h2>Input Presensi Pegawai</h2>
     
+                <!-- Nama Pegawai (readonly, diisi otomatis dengan nama user login) -->
                 <div class="form-group">
                     <label for="nama">Nama Pegawai</label>
-                    <select id="nama" name="nama">
-                        <option value="Ferdy">Ferdy</option>
-                        <option value="Mado">Mado</option>
-                        <option value="Juliano">Juliano</option>
-                        <option value="Rio">Rio</option>
-                    </select>
+                    <input type="text" id="nama" name="nama" value="{{ Auth::user()->name }}" readonly>
                 </div>
     
                 <div class="form-group">
