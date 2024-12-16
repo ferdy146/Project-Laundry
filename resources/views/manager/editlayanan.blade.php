@@ -92,33 +92,7 @@
             display: flex;
         }
 
-        .btn-edit {
-        background-color: #ffc107;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 5px;
-        font-size: 0.8em;
-        cursor: pointer;
-    }
-
-    .btn-edit:hover {
-        background-color: #e0a800;
-    }
-
-    .btn-delete {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 5px;
-        font-size: 0.8em;
-        cursor: pointer;
-    }
-
-    .btn-delete:hover {
-        background-color: #c82333;
-    }
+        
     </style>
     
 </head>
