@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Laundry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaundryController extends Controller
 {
@@ -60,6 +61,12 @@ class LaundryController extends Controller
         $laundry->delete();
 
         return redirect()->route('manager.viewlayanan')->with('success', 'Layanan laundry berhasil dihapus.');
+    }
+
+    public function viewlandinglayanan()
+    {
+        $laundries = DB::table('laundries')->get();
+        return view('home.layanan', ['laundries' => $laundries]);
     }
 
 

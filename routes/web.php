@@ -12,7 +12,8 @@ use App\Http\Controllers\LaundryController;
 // Untuk tampilan Home
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
-Route::get('/layanan', [HomeController::class, 'layanan']);
+Route::get('/layanan', [LaundryController::class, 'viewlandinglayanan'])->name('layanan');
+Route::put('/layanan', [LaundryController::class, 'viewlandinglayanan'])->name('layanan');
 Route::get('/kontak', [HomeController::class, 'kontak']);
 
 // Untuk Login
